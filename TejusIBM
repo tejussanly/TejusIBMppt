@@ -1,1 +1,465 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ODIN PROJECT | Tejus Sanly</title>
+
+  <style>
+    * { box-sizing: border-box; }
+
+    :root {
+      --bg: #080e1e;
+      --card: #121e35;
+      --accent: #6c8cff;
+      --text: #f5f7ff;
+      --muted: #a6b2cc;
+    }
+
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: radial-gradient(
+        ellipse at top, #182c50, var(--bg) 65%
+      );
+      background-attachment: fixed;
+      color: var(--text);
+      min-height: 100vh;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 22px 7%;
+      border-bottom: 1px solid #ffffff18;
+    }
+
+    .logo {
+      font-size: 22px;
+      font-weight: 800;
+      letter-spacing: 3px;
+      color: var(--accent);
+    }
+
+    nav button {
+      color: white;
+      background: none;
+      border: none;
+      cursor: pointer;
+      margin-left: 15px;
+      font-size: 15px;
+    }
+
+    nav button:hover { color: var(--accent); }
+
+    .page {
+      display: none;
+      max-width: 1100px;
+      margin: auto;
+      padding: 65px 24px;
+      animation: fadeIn .4s ease;
+    }
+
+    .page.active { display: block; }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(12px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .hero {
+      text-align: center;
+      padding-top: 100px;
+    }
+
+    .eyebrow {
+      color: #9eb5ff;
+      letter-spacing: 4px;
+      font-size: 13px;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(48px, 8vw, 90px);
+      margin: 20px 0;
+      letter-spacing: -3px;
+    }
+
+    h1 span { color: var(--accent); }
+
+    h2 { font-size: 38px; margin-bottom: 14px; }
+
+    p {
+      color: var(--muted);
+      line-height: 1.8;
+      font-size: 17px;
+    }
+
+    .hero p {
+      max-width: 600px;
+      margin: 0 auto 35px;
+    }
+
+    .btn {
+      background: var(--accent);
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 15px 25px;
+      font-size: 15px;
+      cursor: pointer;
+      font-weight: bold;
+      margin: 7px;
+      transition: .25s;
+    }
+
+    .btn:hover {
+      background: #91a8ff;
+      transform: translateY(-3px);
+    }
+
+    .btn.secondary {
+      background: #ffffff15;
+      border: 1px solid #ffffff25;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+      margin-top: 35px;
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid #ffffff17;
+      border-radius: 18px;
+      padding: 28px;
+      transition: .25s;
+    }
+
+    .card:hover {
+      border-color: var(--accent);
+      transform: translateY(-4px);
+    }
+
+    .card .number {
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: bold;
+    }
+
+    .card h3 {
+      font-size: 19px;
+      min-height: 50px;
+    }
+
+    .card p { font-size: 14px; }
+
+    .card .btn {
+      width: 100%;
+      margin: 10px 0 0;
+    }
+
+    .back {
+      background: none;
+      color: var(--accent);
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 25px;
+    }
+
+    .info-box {
+      background: var(--card);
+      padding: 35px;
+      border-radius: 18px;
+      border: 1px solid #ffffff20;
+      max-width: 750px;
+    }
+
+    .info-box strong { color: #fff; }
+
+    .viewer {
+      width: 100%;
+      height: 75vh;
+      border: 1px solid #ffffff25;
+      border-radius: 12px;
+      background: white;
+      margin-top: 20px;
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 20px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 600px) {
+      header { flex-direction: column; gap: 20px; }
+      nav button { margin: 5px; }
+      .hero { padding-top: 35px; }
+      .page { padding-top: 40px; }
+      h2 { font-size: 30px; }
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <div class="logo">ODIN PROJECT</div>
+  <nav>
+    <button onclick="showPage('home')">Home</button>
+    <button onclick="showPage('about')">About Me</button>
+    <button onclick="showPage('presentations')">Presentations</button>
+    <button onclick="showPage('certificates')">Certificates</button>
+  </nav>
+</header>
+
+<!-- HOME -->
+<section id="home" class="page active hero">
+  <div class="eyebrow">Welcome to my digital portfolio</div>
+  <h1>TEJUS <span>SANLY.</span></h1>
+  <p>
+    Computer Systems Student | 6th Semester | RNU
+  </p>
+  <p>
+    Explore my academic journey, presentations,
+    certificates, and interests in technology.
+  </p>
+
+  <button class="btn" onclick="showPage('about')">
+    About Me →
+  </button>
+  <button class="btn secondary"
+          onclick="showPage('presentations')">
+    My Presentations
+  </button>
+  <button class="btn secondary"
+          onclick="showPage('certificates')">
+    My Certificates
+  </button>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="page">
+  <button class="back" onclick="showPage('home')">
+    ← Back to Home
+  </button>
+
+  <h2>About Me</h2>
+
+  <div class="info-box">
+    <h3>Hello! I'm Tejus Sanly.</h3>
+    <p>
+      I am currently studying Computer Systems in my
+      6th semester at RNU.
+    </p>
+    <p>
+      I am passionate about technology, computer systems,
+      and learning new concepts in the digital world.
+      Through my studies, I continue to explore subjects
+      such as artificial intelligence, modern computing,
+      and emerging technologies.
+    </p>
+    <p>
+      ODIN PROJECT is my personal digital portfolio,
+      created to showcase my presentations, educational
+      certificates, and academic progress.
+    </p>
+    <p>
+      <strong>University:</strong> RNU<br>
+      <strong>Program:</strong> Computer Systems<br>
+      <strong>Semester:</strong> 6th<br>
+      <strong>Interests:</strong> AI, Computing, Technology
+    </p>
+  </div>
+</section>
+
+<!-- PRESENTATIONS -->
+<section id="presentations" class="page">
+  <button class="back" onclick="showPage('home')">
+    ← Back to Home
+  </button>
+
+  <h2>My Presentations</h2>
+  <p>
+    A collection of my academic presentations.
+    Click any presentation to view its slides.
+  </p>
+
+  <div class="grid" id="presentationGrid"></div>
+</section>
+
+<!-- CERTIFICATES -->
+<section id="certificates" class="page">
+  <button class="back" onclick="showPage('home')">
+    ← Back to Home
+  </button>
+
+  <h2>My Certificates</h2>
+  <p>
+    Certificates and achievements from my learning journey.
+  </p>
+
+  <div class="grid" id="certificateGrid"></div>
+</section>
+
+<!-- PDF VIEWER -->
+<section id="viewerPage" class="page">
+  <button class="back" onclick="goBack()">
+    ← Back to Collection
+  </button>
+
+  <h2 id="viewerTitle"></h2>
+
+  <a id="downloadLink" class="btn"
+     target="_blank" rel="noopener"
+     style="display:inline-block;text-decoration:none;">
+    Open / Download PDF ↗
+  </a>
+
+  <iframe id="pdfViewer" class="viewer"
+          title="Document viewer"></iframe>
+</section>
+
+<footer>
+  © 2026 ODIN PROJECT | Created by Tejus Sanly
+</footer>
+
+<script>
+  // Your six uploaded presentations.
+  // Upload the matching PDFs to GitHub.
+
+  const presentations = [
+    {
+      title: "Introduction to Artificial Intelligence",
+      file: "presentations/1.pdf",
+      description: "Fundamentals and capabilities of AI."
+    },
+    {
+      title: "AI Literacy",
+      file: "presentations/2.pdf",
+      description: "Understanding and using AI responsibly."
+    },
+    {
+      title: "AI-Enabled Applications for Customer Service",
+      file: "presentations/3.pdf",
+      description: "How AI improves customer interactions."
+    },
+    {
+      title: "Craft Precise Prompts for AI Models",
+      file: "presentations/4.pdf",
+      description: "Introduction to prompt engineering."
+    },
+    {
+      title: "RAG: Retrieval-Augmented Generation",
+      file: "presentations/5.pdf",
+      description: "Using information retrieval with AI."
+    },
+    {
+      title: "The Rise of Multiagent Systems",
+      file: "presentations/6.pdf",
+      description: "Communication and collaboration among AI agents."
+    }
+  ];
+
+  // Add your certificate information here later.
+  // Example:
+  // {
+  //   title: "Python Certificate",
+  //   file: "certificates/python.pdf",
+  //   description: "Certificate of completion"
+  // }
+
+  const certificates = [];
+
+  let previousPage = "presentations";
+
+  function showPage(id) {
+    document.querySelectorAll(".page").forEach(page => {
+      page.classList.remove("active");
+    });
+
+    document.getElementById(id).classList.add("active");
+    window.scrollTo(0, 0);
+  }
+
+  function createCards(items, containerId, category) {
+    const container = document.getElementById(containerId);
+    container.innerHTML = "";
+
+    if (items.length === 0) {
+      const message = document.createElement("p");
+      message.textContent =
+        "Certificates will be added here soon.";
+      container.appendChild(message);
+      return;
+    }
+
+    items.forEach((item, index) => {
+      const card = document.createElement("div");
+      card.className = "card";
+
+      const number = document.createElement("div");
+      number.className = "number";
+      number.textContent =
+        category.toUpperCase() + " " +
+        String(index + 1).padStart(2, "0");
+
+      const title = document.createElement("h3");
+      title.textContent = item.title;
+
+      const description = document.createElement("p");
+      description.textContent = item.description;
+
+      const button = document.createElement("button");
+      button.className = "btn";
+      button.textContent = "View Document →";
+      button.addEventListener("click", () => {
+        openDocument(item.title, item.file, category);
+      });
+
+      card.append(number, title, description, button);
+      container.appendChild(card);
+    });
+  }
+
+  function openDocument(title, file, category) {
+    previousPage =
+      category === "presentation"
+        ? "presentations"
+        : "certificates";
+
+    document.getElementById("viewerTitle").textContent = title;
+    document.getElementById("pdfViewer").src = file;
+    document.getElementById("downloadLink").href = file;
+
+    showPage("viewerPage");
+  }
+
+  function goBack() {
+    document.getElementById("pdfViewer").src = "about:blank";
+    showPage(previousPage);
+  }
+
+  createCards(
+    presentations,
+    "presentationGrid",
+    "presentation"
+  );
+
+  createCards(
+    certificates,
+    "certificateGrid",
+    "certificate"
+  );
+</script>
+
+</body>
+</html>
+
