@@ -7,7 +7,9 @@
   <title>ODIN PROJECT | Tejus Sanly</title>
 
   <style>
-    * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
     :root {
       --bg: #080e1e;
@@ -34,6 +36,7 @@
       align-items: center;
       padding: 22px 7%;
       border-bottom: 1px solid #ffffff18;
+      gap: 20px;
     }
 
     .logo {
@@ -43,16 +46,23 @@
       color: var(--accent);
     }
 
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
     nav button {
       color: white;
       background: none;
       border: none;
       cursor: pointer;
-      margin-left: 15px;
       font-size: 15px;
     }
 
-    nav button:hover { color: var(--accent); }
+    nav button:hover {
+      color: var(--accent);
+    }
 
     .page {
       display: none;
@@ -62,7 +72,9 @@
       animation: fadeIn .4s ease;
     }
 
-    .page.active { display: block; }
+    .page.active {
+      display: block;
+    }
 
     @keyframes fadeIn {
       from {
@@ -93,7 +105,9 @@
       letter-spacing: -3px;
     }
 
-    h1 span { color: var(--accent); }
+    h1 span {
+      color: var(--accent);
+    }
 
     h2 {
       font-size: 38px;
@@ -113,7 +127,7 @@
 
     .btn {
       background: var(--accent);
-      color: #fff;
+      color: white;
       border: none;
       border-radius: 12px;
       padding: 15px 25px;
@@ -149,6 +163,8 @@
       border-radius: 18px;
       padding: 28px;
       transition: .25s;
+      display: flex;
+      flex-direction: column;
     }
 
     .card:hover {
@@ -167,7 +183,10 @@
       min-height: 50px;
     }
 
-    .card p { font-size: 14px; }
+    .card p {
+      font-size: 14px;
+      flex-grow: 1;
+    }
 
     .card .btn {
       width: 100%;
@@ -191,7 +210,9 @@
       max-width: 750px;
     }
 
-    .info-box strong { color: #fff; }
+    .info-box strong {
+      color: white;
+    }
 
     .viewer {
       width: 100%;
@@ -215,18 +236,28 @@
         gap: 20px;
       }
 
-      nav button { margin: 5px; }
+      nav {
+        justify-content: center;
+      }
 
-      .hero { padding-top: 35px; }
+      .hero {
+        padding-top: 35px;
+      }
 
-      .page { padding-top: 40px; }
+      .page {
+        padding-top: 40px;
+      }
 
-      h2 { font-size: 30px; }
+      h2 {
+        font-size: 30px;
+      }
     }
   </style>
 </head>
 
 <body>
+
+<!-- NAVIGATION -->
 
 <header>
   <div class="logo">ODIN PROJECT</div>
@@ -242,6 +273,10 @@
 
     <button onclick="showPage('presentations')">
       Presentations
+    </button>
+
+    <button onclick="showPage('odinPresentations')">
+      Odin Project PPTs
     </button>
 
     <button onclick="showPage('certificates')">
@@ -276,7 +311,12 @@
 
   <button class="btn secondary"
           onclick="showPage('presentations')">
-    My Presentations
+    IBM Presentations
+  </button>
+
+  <button class="btn secondary"
+          onclick="showPage('odinPresentations')">
+    Odin Project PPTs
   </button>
 
   <button class="btn secondary"
@@ -310,17 +350,20 @@
       I am passionate about technology,
       computer systems, and learning new
       concepts in the digital world.
+    </p>
+
+    <p>
       Through my studies, I continue to
-      explore subjects such as artificial
-      intelligence, modern computing,
-      and emerging technologies.
+      explore artificial intelligence,
+      programming, web development,
+      modern computing, and emerging technologies.
     </p>
 
     <p>
       ODIN PROJECT is my personal digital
       portfolio, created to showcase my
-      presentations, educational certificates,
-      and academic progress.
+      academic presentations, educational
+      certificates, and learning progress.
     </p>
 
     <p>
@@ -328,7 +371,7 @@
       <strong>Program:</strong> Computer Systems<br>
       <strong>Semester:</strong> 6th<br>
       <strong>Interests:</strong>
-      AI, Computing, Technology
+      AI, Web Development, Computing, Technology
     </p>
 
   </div>
@@ -336,7 +379,7 @@
 </section>
 
 
-<!-- PRESENTATIONS PAGE -->
+<!-- IBM PRESENTATIONS -->
 
 <section id="presentations" class="page">
 
@@ -347,8 +390,8 @@
   <h2>My Presentations</h2>
 
   <p>
-    A collection of my academic presentations.
-    Click any presentation to view its slides.
+    My IBM SkillsBuild presentations covering
+    artificial intelligence and modern technologies.
   </p>
 
   <div class="grid" id="presentationGrid"></div>
@@ -356,7 +399,28 @@
 </section>
 
 
-<!-- CERTIFICATES PAGE -->
+<!-- ODIN PROJECT PRESENTATIONS -->
+
+<section id="odinPresentations" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back to Home
+  </button>
+
+  <h2>Odin Project PPTs</h2>
+
+  <p>
+    Presentations based on The Odin Project's
+    Full Stack JavaScript learning path.
+    Explore HTML, CSS, and JavaScript topics.
+  </p>
+
+  <div class="grid" id="odinPresentationGrid"></div>
+
+</section>
+
+
+<!-- CERTIFICATES -->
 
 <section id="certificates" class="page">
 
@@ -367,8 +431,8 @@
   <h2>My Certificates</h2>
 
   <p>
-    Certificates and achievements from
-    my learning journey.
+    Certificates and achievements
+    from my learning journey.
   </p>
 
   <div class="grid" id="certificateGrid"></div>
@@ -376,7 +440,7 @@
 </section>
 
 
-<!-- PDF VIEWER PAGE -->
+<!-- DOCUMENT VIEWER -->
 
 <section id="viewerPage" class="page">
 
@@ -417,45 +481,38 @@
 
 <script>
 
-  // ALL PRESENTATIONS
+  // IBM SKILLSBUILD PRESENTATIONS
 
   const presentations = [
 
     {
       title: "Introduction to Artificial Intelligence",
       file: "presentations/1.pdf",
-      description:
-        "Fundamentals and capabilities of AI."
+      description: "Fundamentals and capabilities of AI."
     },
 
     {
       title: "AI Literacy",
       file: "presentations/2.pdf",
-      description:
-        "Understanding and using AI responsibly."
+      description: "Understanding and using AI responsibly."
     },
 
     {
-      title:
-        "AI-Enabled Applications for Customer Service",
+      title: "AI-Enabled Applications for Customer Service",
       file: "presentations/3.pdf",
-      description:
-        "How AI improves customer interactions."
+      description: "How AI improves customer interactions."
     },
 
     {
       title: "Craft Precise Prompts for AI Models",
       file: "presentations/4.pdf",
-      description:
-        "Introduction to prompt engineering."
+      description: "Introduction to prompt engineering."
     },
 
     {
-      title:
-        "RAG: Retrieval-Augmented Generation",
+      title: "RAG: Retrieval-Augmented Generation",
       file: "presentations/5.pdf",
-      description:
-        "Using information retrieval with AI."
+      description: "Using information retrieval with AI."
     },
 
     {
@@ -465,49 +522,78 @@
         "Communication and collaboration among AI agents."
     },
 
-    // PRESENTATION 07 - NEW COMBINED PDF
-
     {
       title: "All Combined PPTs",
       file: "presentations/all-combined-ppts.pdf",
       description:
-        "My complete IBM SkillsBuild AI learning portfolio. " +
-        "Includes AI Literacy, Generative AI, " +
-        "IBM Granite, Prompt Engineering, RAG, " +
-        "Customer Service AI, Multiagent Systems, " +
-        "Emerging Technologies, and Responsible AI."
+        "Complete IBM SkillsBuild AI learning portfolio. " +
+        "AI Literacy, Generative AI, IBM Granite, " +
+        "Prompt Engineering, RAG, Multiagent Systems, " +
+        "and Responsible AI."
     }
 
   ];
 
 
-  // CERTIFICATES
-  // You can add certificates later.
+  // THE ODIN PROJECT PRESENTATIONS
+
+  const odinPresentations = [
+
+    {
+      title: "Intermediate HTML and CSS",
+      file: "odin project ppts/intermediate-html-css.pdf",
+      description:
+        "HTML forms, SVG, CSS selectors, " +
+        "CSS Grid, responsive design, " +
+        "and practical web projects."
+    },
+
+    {
+      title: "JavaScript",
+      file: "odin project ppts/javascript.pdf",
+      description:
+        "Objects, classes, modules, APIs, " +
+        "asynchronous JavaScript, testing, " +
+        "algorithms, and web applications."
+    },
+
+    {
+      title: "Advanced HTML and CSS",
+      file: "odin project ppts/advanced-html-css.pdf",
+      description:
+        "CSS transforms, transitions, animations, " +
+        "accessibility, responsive design, " +
+        "media queries, and the Homepage project."
+    }
+
+  ];
+
+
+  // CERTIFICATES - ADD LATER
 
   const certificates = [];
 
 
+  // TRACK PREVIOUS PAGE
+
   let previousPage = "presentations";
 
 
-  // NAVIGATION
+  // PAGE NAVIGATION
 
   function showPage(id) {
 
-    document.querySelectorAll(".page")
-      .forEach(page => {
-        page.classList.remove("active");
-      });
+    document.querySelectorAll(".page").forEach(page => {
+      page.classList.remove("active");
+    });
 
-    document.getElementById(id)
-      .classList.add("active");
+    document.getElementById(id).classList.add("active");
 
     window.scrollTo(0, 0);
-
   }
 
 
-  // CREATE PRESENTATION AND CERTIFICATE CARDS
+  // GENERATE PRESENTATION CARDS
 
   function createCards(items, containerId, category) {
 
@@ -522,11 +608,10 @@
 
       message.textContent =
         category === "certificate"
-          ? "Certificates will be added here soon."
-          : "No presentations available.";
+        ? "Certificates will be added here soon."
+        : "No presentations available.";
 
       container.appendChild(message);
-
       return;
     }
 
@@ -535,7 +620,6 @@
 
       const card = document.createElement("div");
       card.className = "card";
-
 
       const number = document.createElement("div");
       number.className = "number";
@@ -554,10 +638,8 @@
 
 
       const button = document.createElement("button");
-
       button.className = "btn";
       button.textContent = "View Document →";
-
 
       button.addEventListener("click", () => {
 
@@ -584,14 +666,21 @@
   }
 
 
-  // OPEN PDF
+  // OPEN DOCUMENT
 
   function openDocument(title, file, category) {
 
-    previousPage =
-      category === "presentation"
-        ? "presentations"
-        : "certificates";
+    if (category === "presentation") {
+      previousPage = "presentations";
+    }
+    else if (category === "odin") {
+      previousPage = "odinPresentations";
+    }
+    else {
+      previousPage = "certificates";
+    }
+
+    const fileURL = encodeURI(file);
 
     document.getElementById(
       "viewerTitle"
@@ -599,18 +688,18 @@
 
     document.getElementById(
       "pdfViewer"
-    ).src = file;
+    ).src = fileURL;
 
     document.getElementById(
       "downloadLink"
-    ).href = file;
+    ).href = fileURL;
 
     showPage("viewerPage");
 
   }
 
 
-  // BACK BUTTON
+  // RETURN TO PREVIOUS COLLECTION
 
   function goBack() {
 
@@ -623,7 +712,7 @@
   }
 
 
-  // LOAD PRESENTATIONS
+  // DISPLAY ALL COLLECTIONS
 
   createCards(
     presentations,
@@ -631,8 +720,11 @@
     "presentation"
   );
 
-
-  // LOAD CERTIFICATES
+  createCards(
+    odinPresentations,
+    "odinPresentationGrid",
+    "odin"
+  );
 
   createCards(
     certificates,
