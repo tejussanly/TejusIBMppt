@@ -4,14 +4,12 @@
 
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport"
         content="width=device-width, initial-scale=1.0">
 
   <title>ODIN PROJECT | Tejus Sanly</title>
 
   <style>
-
     * {
       box-sizing: border-box;
     }
@@ -22,7 +20,6 @@
       --accent: #6c8cff;
       --text: #f5f7ff;
       --muted: #a6b2cc;
-      --border: #ffffff20;
     }
 
     html {
@@ -32,13 +29,9 @@
     body {
       margin: 0;
       font-family: Arial, sans-serif;
-
       background: radial-gradient(
-        ellipse at top,
-        #182c50,
-        var(--bg) 65%
+        ellipse at top, #182c50, var(--bg) 65%
       );
-
       background-attachment: fixed;
       color: var(--text);
       min-height: 100vh;
@@ -50,8 +43,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      gap: 20px;
       padding: 22px 7%;
+      gap: 20px;
       border-bottom: 1px solid #ffffff18;
     }
 
@@ -65,8 +58,7 @@
     nav {
       display: flex;
       flex-wrap: wrap;
-      align-items: center;
-      gap: 16px;
+      gap: 15px;
     }
 
     nav button {
@@ -75,7 +67,6 @@
       border: none;
       cursor: pointer;
       font-size: 15px;
-      transition: .25s;
     }
 
     nav button:hover {
@@ -101,14 +92,13 @@
         opacity: 0;
         transform: translateY(12px);
       }
-
       to {
         opacity: 1;
         transform: translateY(0);
       }
     }
 
-    /* HOME */
+    /* TEXT */
 
     .hero {
       text-align: center;
@@ -176,16 +166,22 @@
       border: 1px solid #ffffff25;
     }
 
-    /* PRESENTATION GRID */
+    .back {
+      background: none;
+      color: var(--accent);
+      border: none;
+      font-size: 16px;
+      cursor: pointer;
+      margin-bottom: 25px;
+    }
+
+    /* CARDS */
 
     .grid {
       display: grid;
-
       grid-template-columns: repeat(
-        auto-fit,
-        minmax(260px, 1fr)
+        auto-fit, minmax(260px, 1fr)
       );
-
       gap: 20px;
       margin-top: 35px;
     }
@@ -196,7 +192,6 @@
       border-radius: 18px;
       padding: 28px;
       transition: .25s;
-
       display: flex;
       flex-direction: column;
     }
@@ -227,24 +222,11 @@
       margin: 10px 0 0;
     }
 
-    /* BACK BUTTON */
-
-    .back {
-      background: none;
-      color: var(--accent);
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-      margin-bottom: 25px;
-    }
-
-    /* ABOUT */
-
     .info-box {
       background: var(--card);
       padding: 35px;
       border-radius: 18px;
-      border: 1px solid var(--border);
+      border: 1px solid #ffffff20;
       max-width: 750px;
     }
 
@@ -255,7 +237,6 @@
     /* PDF VIEWER */
 
     .viewer {
-      display: block;
       width: 100%;
       height: 75vh;
       border: 1px solid #ffffff25;
@@ -264,7 +245,17 @@
       margin-top: 20px;
     }
 
-    /* PROFESSIONAL CV SECTION */
+    /* CV SECTION */
+
+    .cv-container {
+      margin-top: 30px;
+      background: linear-gradient(
+        135deg, #172b4f, #101a31
+      );
+      border: 1px solid #ffffff25;
+      border-radius: 22px;
+      padding: 40px;
+    }
 
     .cv-intro {
       color: #9eb5ff;
@@ -272,36 +263,12 @@
       letter-spacing: 3px;
       font-size: 12px;
       font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .cv-container {
-      margin-top: 30px;
-      background: linear-gradient(
-        135deg,
-        #172b4f,
-        #101a31
-      );
-
-      border: 1px solid #ffffff25;
-      border-radius: 22px;
-      padding: 40px;
-    }
-
-    .cv-top {
-      display: flex;
-      justify-content: space-between;
-      align-items: flex-start;
-      gap: 25px;
-      flex-wrap: wrap;
     }
 
     .cv-name {
       font-size: clamp(32px, 5vw, 48px);
       font-weight: 800;
-      letter-spacing: -1px;
-      margin: 10px 0;
-      color: white;
+      margin: 15px 0;
     }
 
     .cv-subtitle {
@@ -310,24 +277,9 @@
       line-height: 1.7;
     }
 
-    .cv-icon {
-      width: 75px;
-      height: 75px;
-      border-radius: 18px;
-
-      background: #6c8cff20;
-      border: 1px solid #6c8cff50;
-
-      display: flex;
-      justify-content: center;
-      align-items: center;
-
-      font-size: 35px;
-    }
-
     .cv-summary {
-      margin-top: 25px;
       max-width: 800px;
+      margin: 25px 0;
       color: #b8c5df;
       line-height: 1.8;
     }
@@ -338,20 +290,11 @@
       margin: 30px 0;
     }
 
-    .cv-label {
-      color: #9eb5ff;
-      font-size: 12px;
-      text-transform: uppercase;
-      letter-spacing: 2px;
-      font-weight: bold;
-      margin-bottom: 15px;
-    }
-
     .cv-tags {
       display: flex;
       flex-wrap: wrap;
       gap: 10px;
-      margin-bottom: 28px;
+      margin: 20px 0 30px;
     }
 
     .cv-tag {
@@ -366,38 +309,16 @@
     .cv-actions {
       display: flex;
       flex-wrap: wrap;
-      gap: 12px;
-    }
-
-    .cv-actions .btn {
-      margin: 0;
-    }
-
-    .cv-preview-section {
-      margin-top: 45px;
-    }
-
-    .cv-preview-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      gap: 15px;
-      flex-wrap: wrap;
-    }
-
-    .cv-preview-header h3 {
-      font-size: 25px;
-      margin-bottom: 5px;
+      gap: 10px;
     }
 
     .cv-preview {
       display: none;
-      margin-top: 22px;
+      margin-top: 30px;
       padding: 12px;
-
       background: var(--card);
-      border: 1px solid var(--border);
       border-radius: 18px;
+      border: 1px solid #ffffff20;
     }
 
     .cv-preview.visible {
@@ -407,15 +328,82 @@
     .cv-preview iframe {
       width: 100%;
       height: 80vh;
+      border: none;
+      background: white;
+      border-radius: 10px;
+    }
+
+    /* HOMEWORK SECTION */
+
+    .hw-container {
+      margin-top: 30px;
+      background: linear-gradient(
+        135deg, #172b4f, #101a31
+      );
+      border: 1px solid #ffffff25;
+      border-radius: 22px;
+      padding: 35px;
+    }
+
+    .hw-label {
+      color: #9eb5ff;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .hw-title {
+      font-size: 28px;
+      margin: 15px 0;
+    }
+
+    .hw-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-top: 25px;
+    }
+
+    .hw-panel {
+      display: none;
+      background: var(--card);
+      border: 1px solid #ffffff25;
+      border-radius: 18px;
+      margin-top: 25px;
+      padding: 15px;
+    }
+
+    .hw-panel.visible {
+      display: block;
+    }
+
+    .hw-panel h3 {
+      margin: 10px 0 20px;
+    }
+
+    .hw-output {
+      width: 100%;
+      height: 75vh;
       min-height: 450px;
       border: none;
       border-radius: 10px;
       background: white;
     }
 
-    .cv-note {
+    .code-box {
+      width: 100%;
+      max-height: 650px;
+      overflow: auto;
+      background: #050b17;
+      color: #c4e0ff;
+      border-radius: 12px;
+      padding: 20px;
+      font-family: Consolas, monospace;
       font-size: 13px;
-      color: var(--muted);
+      line-height: 1.6;
+      white-space: pre;
+      tab-size: 4;
     }
 
     /* FOOTER */
@@ -427,10 +415,9 @@
       font-size: 13px;
     }
 
-    /* MOBILE RESPONSIVENESS */
+    /* MOBILE */
 
     @media (max-width: 600px) {
-
       header {
         flex-direction: column;
         gap: 20px;
@@ -452,28 +439,25 @@
         font-size: 30px;
       }
 
-      .cv-container {
-        padding: 23px;
+      .cv-container,
+      .hw-container {
+        padding: 22px;
       }
 
+      .hw-actions,
       .cv-actions {
         flex-direction: column;
       }
 
+      .hw-actions .btn,
       .cv-actions .btn {
         width: 100%;
+        margin: 3px 0;
       }
-
-      .cv-preview iframe {
-        min-height: 450px;
-        height: 65vh;
-      }
-
     }
 
   </style>
 </head>
-
 
 <body>
 
@@ -481,19 +465,12 @@
 
 <header>
 
-  <div class="logo">
-    ODIN PROJECT
-  </div>
+  <div class="logo">ODIN PROJECT</div>
 
   <nav>
+    <button onclick="showPage('home')">Home</button>
 
-    <button onclick="showPage('home')">
-      Home
-    </button>
-
-    <button onclick="showPage('about')">
-      About Me
-    </button>
+    <button onclick="showPage('about')">About Me</button>
 
     <button onclick="showPage('presentations')">
       Presentations
@@ -503,14 +480,15 @@
       Odin Project PPTs
     </button>
 
-    <button onclick="showPage('cv')">
-      CV
+    <button onclick="showPage('homework')">
+      H.W
     </button>
+
+    <button onclick="showPage('cv')">CV</button>
 
     <button onclick="showPage('certificates')">
       Certificates
     </button>
-
   </nav>
 
 </header>
@@ -524,9 +502,7 @@
     Welcome to my digital portfolio
   </div>
 
-  <h1>
-    TEJUS <span>SANLY.</span>
-  </h1>
+  <h1>TEJUS <span>SANLY.</span></h1>
 
   <p>
     Computer Systems Student | 6th Semester | RNU
@@ -534,12 +510,11 @@
 
   <p>
     Explore my academic journey, presentations,
-    professional experience, certificates,
+    practical assignments, professional experience,
     and interests in technology.
   </p>
 
-  <button class="btn"
-          onclick="showPage('about')">
+  <button class="btn" onclick="showPage('about')">
     About Me →
   </button>
 
@@ -551,6 +526,11 @@
   <button class="btn secondary"
           onclick="showPage('odinPresentations')">
     Odin Project PPTs
+  </button>
+
+  <button class="btn secondary"
+          onclick="showPage('homework')">
+    My Homework
   </button>
 
   <button class="btn secondary"
@@ -566,12 +546,11 @@
 </section>
 
 
-<!-- ABOUT ME PAGE -->
+<!-- ABOUT ME -->
 
 <section id="about" class="page">
 
-  <button class="back"
-          onclick="showPage('home')">
+  <button class="back" onclick="showPage('home')">
     ← Back to Home
   </button>
 
@@ -588,22 +567,21 @@
 
     <p>
       I am passionate about technology,
-      computer systems, and learning new
-      concepts in the digital world.
+      programming, computer systems,
+      and learning new concepts in the digital world.
     </p>
 
     <p>
       Through my studies, I continue to explore
-      artificial intelligence, programming,
-      web development, modern computing,
-      and emerging technologies.
+      artificial intelligence, web development,
+      modern computing, and emerging technologies.
     </p>
 
     <p>
       ODIN PROJECT is my personal digital portfolio,
-      created to showcase my academic presentations,
-      educational certificates, professional
-      experience, and learning progress.
+      created to showcase my presentations,
+      practical HTML assignments, certificates,
+      professional experience, and learning progress.
     </p>
 
     <p>
@@ -623,17 +601,15 @@
 
 <section id="presentations" class="page">
 
-  <button class="back"
-          onclick="showPage('home')">
+  <button class="back" onclick="showPage('home')">
     ← Back to Home
   </button>
 
   <h2>My Presentations</h2>
 
   <p>
-    My IBM SkillsBuild presentations covering
-    artificial intelligence, modern computing,
-    and emerging technologies.
+    IBM SkillsBuild presentations covering
+    artificial intelligence and modern technologies.
   </p>
 
   <div class="grid" id="presentationGrid"></div>
@@ -645,22 +621,130 @@
 
 <section id="odinPresentations" class="page">
 
-  <button class="back"
-          onclick="showPage('home')">
+  <button class="back" onclick="showPage('home')">
     ← Back to Home
   </button>
 
   <h2>Odin Project PPTs</h2>
 
   <p>
-    Presentations based on The Odin Project's
+    Presentations from The Odin Project's
     Full Stack JavaScript learning path.
-
-    Explore intermediate HTML and CSS,
-    JavaScript, and advanced web development.
   </p>
 
   <div class="grid" id="odinPresentationGrid"></div>
+
+</section>
+
+
+<!-- NEW HOMEWORK PAGE -->
+
+<section id="homework" class="page">
+
+  <button class="back" onclick="showPage('home')">
+    ← Back to Home
+  </button>
+
+  <div class="eyebrow">
+    Practical Assignments
+  </div>
+
+  <h2>H.W — My Homework</h2>
+
+  <p>
+    A collection of my practical assignments
+    in Web Technology, HTML, CSS, and programming.
+  </p>
+
+  <div class="hw-container">
+
+    <div class="hw-label">
+      Web Technology | Assignment 01
+    </div>
+
+    <h3 class="hw-title">
+      HTML & CSS Basics
+    </h3>
+
+    <p>
+      This assignment demonstrates HTML headings,
+      paragraph formatting, CSS styling,
+      class and ID selectors, ordered and unordered
+      lists, nested lists, and hyperlinks.
+    </p>
+
+    <div class="cv-tags">
+      <span class="cv-tag">HTML</span>
+      <span class="cv-tag">CSS</span>
+      <span class="cv-tag">Selectors</span>
+      <span class="cv-tag">Lists</span>
+      <span class="cv-tag">Links</span>
+    </div>
+
+    <div class="hw-actions">
+
+      <button class="btn"
+              onclick="showHomework('output')">
+        ▶ Live Output
+      </button>
+
+      <button class="btn secondary"
+              onclick="showHomework('code')">
+        &lt;/&gt; View Code
+      </button>
+
+      <a class="btn secondary"
+         href="H.W/index.html"
+         target="_blank"
+         rel="noopener noreferrer">
+        Open Full Page ↗
+      </a>
+
+    </div>
+
+  </div>
+
+
+  <!-- LIVE OUTPUT -->
+
+  <div id="hwOutputPanel" class="hw-panel">
+
+    <h3>Live HTML Output</h3>
+
+    <p>
+      This is the actual rendered output
+      of my Web Technology homework.
+    </p>
+
+    <iframe
+      id="hwFrame"
+      class="hw-output"
+      title="HTML Homework Output"
+      sandbox="allow-same-origin">
+    </iframe>
+
+  </div>
+
+
+  <!-- SOURCE CODE -->
+
+  <div id="hwCodePanel" class="hw-panel">
+
+    <h3>HTML Source Code</h3>
+
+    <p>
+      Complete HTML and CSS source code
+      used to create the assignment.
+    </p>
+
+    <button class="btn secondary"
+            onclick="copyHomeworkCode()">
+      Copy Code
+    </button>
+
+    <pre class="code-box"><code id="homeworkCode">Click "View Code" to load the source code.</code></pre>
+
+  </div>
 
 </section>
 
@@ -669,129 +753,76 @@
 
 <section id="cv" class="page">
 
-  <button class="back"
-          onclick="showPage('home')">
+  <button class="back" onclick="showPage('home')">
     ← Back to Home
   </button>
 
-  <div class="cv-intro">
+  <div class="eyebrow">
     Professional Profile
   </div>
 
   <h2>Curriculum Vitae</h2>
 
   <p>
-    Explore my educational background,
-    professional experience, technical skills,
-    and qualifications.
+    Explore my education, professional experience,
+    technical skills, and qualifications.
   </p>
-
 
   <div class="cv-container">
 
-    <div class="cv-top">
-
-      <div>
-
-        <div class="cv-intro">
-          Tejus Sanly | Professional CV
-        </div>
-
-        <div class="cv-name">
-          Tejus Sanly
-        </div>
-
-        <div class="cv-subtitle">
-          Computer Systems Student<br>
-          Hospitality & Kitchen Operations Experience
-        </div>
-
-      </div>
-
-      <div class="cv-icon">
-        &#128196;
-      </div>
-
+    <div class="cv-intro">
+      Tejus Sanly | Professional CV
     </div>
 
+    <div class="cv-name">
+      Tejus Sanly
+    </div>
+
+    <div class="cv-subtitle">
+      Computer Systems Student<br>
+      Hospitality & Kitchen Operations Experience
+    </div>
 
     <div class="cv-summary">
-
       I am a Computer Systems student with practical
       professional experience in restaurant and
       kitchen operations.
 
       My background combines technical knowledge,
-      teamwork, communication, adaptability,
-      and the ability to perform effectively
-      in fast-paced working environments.
-
+      teamwork, communication, adaptability, and
+      the ability to work in fast-paced environments.
     </div>
-
 
     <div class="cv-divider"></div>
 
-
-    <div class="cv-label">
+    <div class="cv-intro">
       Skills & Experience
     </div>
 
     <div class="cv-tags">
 
-      <span class="cv-tag">
-        Computer Systems
-      </span>
-
-      <span class="cv-tag">
-        Python
-      </span>
-
-      <span class="cv-tag">
-        Java
-      </span>
-
-      <span class="cv-tag">
-        Team Collaboration
-      </span>
-
-      <span class="cv-tag">
-        Kitchen Operations
-      </span>
-
-      <span class="cv-tag">
-        Time Management
-      </span>
-
-      <span class="cv-tag">
-        Communication
-      </span>
-
-      <span class="cv-tag">
-        Adaptability
-      </span>
+      <span class="cv-tag">Computer Systems</span>
+      <span class="cv-tag">Python</span>
+      <span class="cv-tag">Java</span>
+      <span class="cv-tag">Team Collaboration</span>
+      <span class="cv-tag">Kitchen Operations</span>
+      <span class="cv-tag">Time Management</span>
+      <span class="cv-tag">Communication</span>
+      <span class="cv-tag">Adaptability</span>
 
     </div>
-
-
-    <div class="cv-label">
-      Curriculum Vitae
-    </div>
-
 
     <div class="cv-actions">
 
-      <button class="btn"
-              onclick="toggleCV()">
+      <button class="btn" onclick="toggleCV()">
         View My CV ↓
       </button>
-
 
       <a class="btn secondary"
          href="CV/FinalCV.pdf"
          download="Tejus_Sanly_CV.pdf">
         Download PDF ↓
       </a>
-
 
       <a class="btn secondary"
          href="CV/FinalCV.pdf"
@@ -805,47 +836,24 @@
   </div>
 
 
-  <!-- CV PREVIEW -->
+  <div class="cv-preview" id="cvPreview">
 
-  <div class="cv-preview-section" id="cvPreviewSection">
+    <h3>CV Preview</h3>
 
-    <div class="cv-preview-header">
-
-      <div>
-
-        <h3>CV Preview</h3>
-
-        <p class="cv-note">
-          Preview my curriculum vitae directly
-          on this website.
-        </p>
-
-      </div>
-
-    </div>
-
-
-    <div class="cv-preview" id="cvPreview">
-
-      <iframe
-        id="cvFrame"
-        title="Tejus Sanly Curriculum Vitae"
-        loading="lazy">
-      </iframe>
-
-    </div>
+    <iframe id="cvFrame"
+            title="Tejus Sanly CV">
+    </iframe>
 
   </div>
 
 </section>
 
 
-<!-- CERTIFICATES PAGE -->
+<!-- CERTIFICATES -->
 
 <section id="certificates" class="page">
 
-  <button class="back"
-          onclick="showPage('home')">
+  <button class="back" onclick="showPage('home')">
     ← Back to Home
   </button>
 
@@ -861,12 +869,11 @@
 </section>
 
 
-<!-- PRESENTATION PDF VIEWER -->
+<!-- PDF DOCUMENT VIEWER -->
 
 <section id="viewerPage" class="page">
 
-  <button class="back"
-          onclick="goBack()">
+  <button class="back" onclick="goBack()">
     ← Back to Collection
   </button>
 
@@ -926,24 +933,21 @@
     },
 
     {
-      title:
-        "Craft Precise Prompts for AI Models",
+      title: "Craft Precise Prompts for AI Models",
       file: "presentations/4.pdf",
       description:
         "Introduction to prompt engineering."
     },
 
     {
-      title:
-        "RAG: Retrieval-Augmented Generation",
+      title: "RAG: Retrieval-Augmented Generation",
       file: "presentations/5.pdf",
       description:
         "Using information retrieval with AI."
     },
 
     {
-      title:
-        "The Rise of Multiagent Systems",
+      title: "The Rise of Multiagent Systems",
       file: "presentations/6.pdf",
       description:
         "Communication and collaboration among AI agents."
@@ -953,10 +957,7 @@
       title: "All Combined PPTs",
       file: "presentations/all-combined-ppts.pdf",
       description:
-        "Complete IBM SkillsBuild AI learning portfolio " +
-        "covering AI Literacy, Generative AI, IBM Granite, " +
-        "Prompt Engineering, RAG, Multiagent Systems, " +
-        "and Responsible AI."
+        "Complete IBM SkillsBuild AI learning portfolio."
     }
 
   ];
@@ -970,27 +971,23 @@
       title: "Intermediate HTML and CSS",
       file: "odin project ppts/intermediate-html-css.pdf",
       description:
-        "HTML forms, SVG, CSS selectors, " +
-        "CSS Grid, responsive design, " +
-        "and practical web projects."
+        "HTML forms, SVG, CSS Grid, and responsive design."
     },
 
     {
       title: "JavaScript",
       file: "odin project ppts/javascript.pdf",
       description:
-        "Objects, classes, modules, APIs, " +
-        "asynchronous JavaScript, testing, " +
-        "algorithms, and web applications."
+        "Objects, modules, APIs, asynchronous JavaScript, " +
+        "testing, algorithms, and web applications."
     },
 
     {
       title: "Advanced HTML and CSS",
       file: "odin project ppts/advanced-html-css.pdf",
       description:
-        "CSS transforms, transitions, animations, " +
-        "accessibility, responsive design, " +
-        "media queries, and the Homepage project."
+        "Animations, accessibility, responsive design, " +
+        "media queries, and advanced CSS."
     }
 
   ];
@@ -1001,9 +998,9 @@
   const certificates = [];
 
 
-  // STORE PREVIOUS PAGE
-
   let previousPage = "presentations";
+
+  let homeworkSource = "";
 
 
   // PAGE NAVIGATION
@@ -1012,9 +1009,7 @@
 
     document.querySelectorAll(".page")
       .forEach(page => {
-
         page.classList.remove("active");
-
       });
 
     document.getElementById(id)
@@ -1025,7 +1020,7 @@
   }
 
 
-  // CREATE PRESENTATION CARDS
+  // GENERATE CARDS
 
   function createCards(items, containerId, category) {
 
@@ -1033,7 +1028,6 @@
       document.getElementById(containerId);
 
     container.innerHTML = "";
-
 
     if (items.length === 0) {
 
@@ -1045,7 +1039,6 @@
           : "No presentations available.";
 
       container.appendChild(message);
-
       return;
 
     }
@@ -1054,54 +1047,30 @@
     items.forEach((item, index) => {
 
       const card = document.createElement("div");
-
       card.className = "card";
 
-
       const number = document.createElement("div");
-
       number.className = "number";
 
       number.textContent =
         category.toUpperCase() + " " +
         String(index + 1).padStart(2, "0");
 
-
       const title = document.createElement("h3");
-
       title.textContent = item.title;
 
-
       const description = document.createElement("p");
-
       description.textContent = item.description;
 
-
       const button = document.createElement("button");
-
       button.className = "btn";
-
       button.textContent = "View Document →";
 
-
       button.addEventListener("click", () => {
-
-        openDocument(
-          item.title,
-          item.file,
-          category
-        );
-
+        openDocument(item.title, item.file, category);
       });
 
-
-      card.append(
-        number,
-        title,
-        description,
-        button
-      );
-
+      card.append(number, title, description, button);
 
       container.appendChild(card);
 
@@ -1110,53 +1079,40 @@
   }
 
 
-  // OPEN PRESENTATION PDF
+  // PDF VIEWER
 
   function openDocument(title, file, category) {
 
     if (category === "presentation") {
-
       previousPage = "presentations";
-
     }
 
     else if (category === "odin") {
-
       previousPage = "odinPresentations";
-
     }
 
     else {
-
       previousPage = "certificates";
-
     }
 
-
     const fileURL = encodeURI(file);
-
 
     document.getElementById(
       "viewerTitle"
     ).textContent = title;
 
-
     document.getElementById(
       "pdfViewer"
     ).src = fileURL;
-
 
     document.getElementById(
       "downloadLink"
     ).href = fileURL;
 
-
     showPage("viewerPage");
 
   }
 
-
-  // BACK TO PREVIOUS COLLECTION
 
   function goBack() {
 
@@ -1179,24 +1135,18 @@
     const frame =
       document.getElementById("cvFrame");
 
-
     if (preview.classList.contains("visible")) {
 
       preview.classList.remove("visible");
-
       frame.src = "about:blank";
 
-    }
-
-    else {
+    } else {
 
       frame.src = "CV/FinalCV.pdf";
 
       preview.classList.add("visible");
 
-      document.getElementById(
-        "cvPreviewSection"
-      ).scrollIntoView({
+      preview.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
@@ -1206,7 +1156,99 @@
   }
 
 
-  // INITIALIZE PRESENTATIONS
+  // HOMEWORK VIEWER
+
+  async function showHomework(type) {
+
+    const outputPanel =
+      document.getElementById("hwOutputPanel");
+
+    const codePanel =
+      document.getElementById("hwCodePanel");
+
+    const frame =
+      document.getElementById("hwFrame");
+
+    outputPanel.classList.remove("visible");
+    codePanel.classList.remove("visible");
+
+    if (type === "output") {
+
+      frame.src = "H.W/index.html";
+
+      outputPanel.classList.add("visible");
+
+      outputPanel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+    if (type === "code") {
+
+      codePanel.classList.add("visible");
+
+      const codeElement =
+        document.getElementById("homeworkCode");
+
+      codeElement.textContent = "Loading source code...";
+
+      try {
+
+        const response = await fetch("H.W/index.html");
+
+        if (!response.ok) {
+          throw new Error("File not found");
+        }
+
+        homeworkSource = await response.text();
+
+        codeElement.textContent = homeworkSource;
+
+      } catch (error) {
+
+        codeElement.textContent =
+          "Unable to load homework code. " +
+          "Check that H.W/index.html exists in GitHub.";
+
+      }
+
+      codePanel.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+      });
+
+    }
+
+  }
+
+
+  // COPY HOMEWORK SOURCE CODE
+
+  async function copyHomeworkCode() {
+
+    if (!homeworkSource) {
+      alert("Open View Code first.");
+      return;
+    }
+
+    try {
+
+      await navigator.clipboard.writeText(homeworkSource);
+
+      alert("HTML code copied successfully!");
+
+    } catch (error) {
+
+      alert("Select the displayed code and copy it manually.");
+
+    }
+
+  }
+
+
+  // INITIALIZE CONTENT
 
   createCards(
     presentations,
@@ -1214,13 +1256,11 @@
     "presentation"
   );
 
-
   createCards(
     odinPresentations,
     "odinPresentationGrid",
     "odin"
   );
-
 
   createCards(
     certificates,
