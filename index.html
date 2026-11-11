@@ -1,12 +1,9 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>ODIN PROJECT | Tejus Sanly</title>
 
   <style>
@@ -222,6 +219,18 @@
       margin: 10px 0 0;
     }
 
+    .card-buttons {
+      margin-top: auto;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .card-buttons .btn {
+      margin: 0;
+      width: 100%;
+    }
+
     .info-box {
       background: var(--card);
       padding: 35px;
@@ -243,6 +252,31 @@
       border-radius: 12px;
       background: white;
       margin-top: 20px;
+    }
+
+    /* NEW VIDEO VIEWER */
+
+    .video-container {
+      margin-top: 25px;
+      padding: 15px;
+      background: var(--card);
+      border: 1px solid #ffffff25;
+      border-radius: 18px;
+    }
+
+    .video-player {
+      display: block;
+      width: 100%;
+      max-height: 75vh;
+      aspect-ratio: 16 / 9;
+      background: black;
+      border-radius: 12px;
+    }
+
+    .video-description {
+      margin-top: 18px;
+      color: var(--muted);
+      font-size: 15px;
     }
 
     /* CV SECTION */
@@ -455,7 +489,6 @@
         margin: 3px 0;
       }
     }
-
   </style>
 </head>
 
@@ -464,7 +497,6 @@
 <!-- HEADER -->
 
 <header>
-
   <div class="logo">ODIN PROJECT</div>
 
   <nav>
@@ -490,7 +522,6 @@
       Certificates
     </button>
   </nav>
-
 </header>
 
 
@@ -593,7 +624,6 @@
     </p>
 
   </div>
-
 </section>
 
 
@@ -630,6 +660,9 @@
   <p>
     Presentations from The Odin Project's
     Full Stack JavaScript learning path.
+
+    View the presentation slides or watch
+    the corresponding screen recording.
   </p>
 
   <div class="grid" id="odinPresentationGrid"></div>
@@ -637,7 +670,7 @@
 </section>
 
 
-<!-- NEW HOMEWORK PAGE -->
+<!-- HOMEWORK PAGE -->
 
 <section id="homework" class="page">
 
@@ -701,7 +734,6 @@
       </a>
 
     </div>
-
   </div>
 
 
@@ -712,7 +744,7 @@
     <h3>Live HTML Output</h3>
 
     <p>
-      This is the actual rendered output
+      This is the rendered output
       of my Web Technology homework.
     </p>
 
@@ -745,7 +777,6 @@
     <pre class="code-box"><code id="homeworkCode">Click "View Code" to load the source code.</code></pre>
 
   </div>
-
 </section>
 
 
@@ -832,9 +863,7 @@
       </a>
 
     </div>
-
   </div>
-
 
   <div class="cv-preview" id="cvPreview">
 
@@ -845,7 +874,6 @@
     </iframe>
 
   </div>
-
 </section>
 
 
@@ -891,6 +919,54 @@
     class="viewer"
     title="Document viewer">
   </iframe>
+
+</section>
+
+
+<!-- NEW SCREEN RECORDING VIEWER -->
+
+<section id="videoPage" class="page">
+
+  <button class="back" onclick="goBackVideo()">
+    ← Back to Odin Project PPTs
+  </button>
+
+  <div class="eyebrow">
+    Presentation Screen Recording
+  </div>
+
+  <h2 id="videoTitle"></h2>
+
+  <p>
+    Watch the recorded presentation below.
+    Use the video controls to pause, adjust
+    volume, skip sections, or enter fullscreen.
+  </p>
+
+  <div class="video-container">
+
+    <video
+      id="videoPlayer"
+      class="video-player"
+      controls
+      preload="metadata"
+      playsinline>
+
+      Your browser does not support HTML5 video.
+
+    </video>
+
+    <p class="video-description" id="videoDescription">
+    </p>
+
+  </div>
+
+  <a id="openVideoLink"
+     class="btn secondary"
+     target="_blank"
+     rel="noopener noreferrer">
+    Open Recording in New Tab ↗
+  </a>
 
 </section>
 
@@ -963,20 +1039,32 @@
   ];
 
 
-  // ODIN PROJECT PRESENTATIONS
+  // ODIN PROJECT PRESENTATIONS WITH RECORDINGS
 
   const odinPresentations = [
 
     {
       title: "Intermediate HTML and CSS",
-      file: "odin project ppts/intermediate-html-css.pdf",
+
+      file:
+        "odin project ppts/intermediate-html-css.pdf",
+
+      video:
+        "odin recordings/Intermediate HTML and CSS.mp4",
+
       description:
         "HTML forms, SVG, CSS Grid, and responsive design."
     },
 
     {
       title: "JavaScript",
-      file: "odin project ppts/javascript.pdf",
+
+      file:
+        "odin project ppts/javascript.pdf",
+
+      video:
+        "odin recordings/Javascript.mp4",
+
       description:
         "Objects, modules, APIs, asynchronous JavaScript, " +
         "testing, algorithms, and web applications."
@@ -984,7 +1072,13 @@
 
     {
       title: "Advanced HTML and CSS",
-      file: "odin project ppts/advanced-html-css.pdf",
+
+      file:
+        "odin project ppts/advanced-html-css.pdf",
+
+      video:
+        "odin recordings/Advanced HTML and CSS.mp4",
+
       description:
         "Animations, accessibility, responsive design, " +
         "media queries, and advanced CSS."
@@ -1007,6 +1101,13 @@
 
   function showPage(id) {
 
+    // Stop video when leaving the video page.
+    const video = document.getElementById("videoPlayer");
+
+    if (id !== "videoPage" && video) {
+      video.pause();
+    }
+
     document.querySelectorAll(".page")
       .forEach(page => {
         page.classList.remove("active");
@@ -1016,11 +1117,10 @@
       .classList.add("active");
 
     window.scrollTo(0, 0);
-
   }
 
 
-  // GENERATE CARDS
+  // CREATE PRESENTATION CARDS
 
   function createCards(items, containerId, category) {
 
@@ -1039,8 +1139,8 @@
           : "No presentations available.";
 
       container.appendChild(message);
-      return;
 
+      return;
     }
 
 
@@ -1062,24 +1162,72 @@
       const description = document.createElement("p");
       description.textContent = item.description;
 
-      const button = document.createElement("button");
-      button.className = "btn";
-      button.textContent = "View Document →";
+      const buttons = document.createElement("div");
+      buttons.className = "card-buttons";
 
-      button.addEventListener("click", () => {
-        openDocument(item.title, item.file, category);
+
+      // BUTTON 1: VIEW PDF
+
+      const pdfButton = document.createElement("button");
+
+      pdfButton.className = "btn";
+
+      pdfButton.textContent = "View Document →";
+
+      pdfButton.addEventListener("click", () => {
+
+        openDocument(
+          item.title,
+          item.file,
+          category
+        );
+
       });
 
-      card.append(number, title, description, button);
+      buttons.appendChild(pdfButton);
+
+
+      // BUTTON 2: WATCH VIDEO
+      // Only for Odin Project presentations.
+
+      if (category === "odin" && item.video) {
+
+        const videoButton =
+          document.createElement("button");
+
+        videoButton.className = "btn secondary";
+
+        videoButton.textContent =
+          "▶ Watch Recording";
+
+        videoButton.addEventListener("click", () => {
+
+          openVideo(
+            item.title,
+            item.video,
+            item.description
+          );
+
+        });
+
+        buttons.appendChild(videoButton);
+      }
+
+
+      card.append(
+        number,
+        title,
+        description,
+        buttons
+      );
 
       container.appendChild(card);
 
     });
-
   }
 
 
-  // PDF VIEWER
+  // OPEN PDF VIEWER
 
   function openDocument(title, file, category) {
 
@@ -1110,9 +1258,10 @@
     ).href = fileURL;
 
     showPage("viewerPage");
-
   }
 
+
+  // BACK FROM PDF VIEWER
 
   function goBack() {
 
@@ -1121,7 +1270,57 @@
     ).src = "about:blank";
 
     showPage(previousPage);
+  }
 
+
+  // NEW: OPEN VIDEO RECORDING
+
+  function openVideo(title, videoFile, description) {
+
+    const video =
+      document.getElementById("videoPlayer");
+
+    const videoURL = encodeURI(videoFile);
+
+    // Clear previous video
+    video.pause();
+    video.removeAttribute("src");
+    video.load();
+
+    // Set new video
+    video.src = videoURL;
+    video.load();
+
+    document.getElementById(
+      "videoTitle"
+    ).textContent = title + " — Screen Recording";
+
+    document.getElementById(
+      "videoDescription"
+    ).textContent = description;
+
+    document.getElementById(
+      "openVideoLink"
+    ).href = videoURL;
+
+    showPage("videoPage");
+  }
+
+
+  // NEW: BACK FROM VIDEO RECORDING
+
+  function goBackVideo() {
+
+    const video =
+      document.getElementById("videoPlayer");
+
+    video.pause();
+
+    video.removeAttribute("src");
+
+    video.load();
+
+    showPage("odinPresentations");
   }
 
 
@@ -1150,9 +1349,7 @@
         behavior: "smooth",
         block: "start"
       });
-
     }
-
   }
 
 
@@ -1172,6 +1369,7 @@
     outputPanel.classList.remove("visible");
     codePanel.classList.remove("visible");
 
+
     if (type === "output") {
 
       frame.src = "H.W/index.html";
@@ -1182,8 +1380,8 @@
         behavior: "smooth",
         block: "start"
       });
-
     }
+
 
     if (type === "code") {
 
@@ -1211,16 +1409,13 @@
         codeElement.textContent =
           "Unable to load homework code. " +
           "Check that H.W/index.html exists in GitHub.";
-
       }
 
       codePanel.scrollIntoView({
         behavior: "smooth",
         block: "start"
       });
-
     }
-
   }
 
 
@@ -1241,10 +1436,10 @@
 
     } catch (error) {
 
-      alert("Select the displayed code and copy it manually.");
-
+      alert(
+        "Select the displayed code and copy it manually."
+      );
     }
-
   }
 
 
